@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="col-md-12">
+      <div class="content-section" id = "upload">
+        <form method=post enctype=multipart/form-data>
+          <h4>Step 1: Please upload you article here (.txt or .csv)</h4>
+          <input type=file name=file> <br>
+        </div>
+        <div class="content-section" id = "inputfeature">
+          <h4>Step 2: Please enter the cut off points for Non-Machine Learning</h4> 
+          <p class="text-muted">(Leave it blank for default value)</p>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"></div> 
+            <div class="col-md-3" id="inheader"><b>Cut Point 1</b></div> 
+            <div class="col-md-3" id="inheader"><b>Cut Point 2</b></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Word Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft0min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[0][0]}}</p></div> 
+            <div class="col-md-2"><input type="text" name="inft0max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[0][1]}}</p></div> 
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Sentence Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft1min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[1][0]}}</p></div> 
+            <div class="col-md-2"><input type="text" name="inft1max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[1][1]}}</p></div> 
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Average Word Length: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft2min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[2][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft2max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[2][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Long Word Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft3min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[3][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft3max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[3][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Average Sentence Length: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft4min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[4][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft4max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[4][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Long Sentence Count*: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft5min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[5][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft5max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[5][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Unique Word Count: </b></div>
+            <div class="col-md-2"><input type="text" name="inft6min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[6][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft6max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[6][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Noun Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft7min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[7][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft7max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[7][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Proper Noun Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft8min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[8][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft8max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[8][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Adjective Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft9min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[9][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft9max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[9][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Verb Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft10min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[10][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft10max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[10][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Adverb Count: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft11min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[11][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft11max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[11][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Tense Ratio: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft12min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[12][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft12max"></div><div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[12][1]}}</p></div>
+          </div>
+          <div class="row" id="inrow"><div class="col-md-4" id="inlabel"><b>Error Count*: </b></div> 
+            <div class="col-md-2"><input type="text" name="inft13min"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[13][0]}}</p></div>
+            <div class="col-md-2"><input type="text" name="inft13max"></div> <div class="col-md-1" id="defaultvalue"><p class="text-muted">{{ratio_cut[13][1]}}</p></div>
+          </div>
+          <i><br>*Suggestion: For Average Sentence Length, Long Sentence Count and Error Count, insert higher value for Cut Point 1 because the higher the value, the worse the essay.</i> 
+          <input type=submit value=Submit id="submit" onclick="location.href='/#result';">
+        <a id="result"> </a>
+        </form>
+      </div>
+  
+      <div class="content-section" id = "maindiv">
+  {% if filetype == 1 %}
+        <h3 style="text-align:center">Result</h3>
+        <ul class="list-group" id="txtresult">
+
+          <li class="list-group-item">
+            <div class="row"><div class="col-md-8"><h6><b>Machine Learning 2 Score: </b></h6></div> 
+            {% if all_y[3] == "Class 1: Bad" %}
+            <div class="col-md-4 pull-right"><b class="text-danger">{{all_y[3]}}</b></div>
+            {% elif all_y[3] == "Class 2: Medium" %}
+            <div class="col-md-4 pull-right"><b class="text-warning">{{all_y[3]}}</b></div>
+            {% else %}
+            <div class="col-md-4 pull-right"><b class="text-success">{{all_y[3]}}</b></div>
+            {% endif %}
+          </li>
+
+          <li class="list-group-item">
+            <div class="row"><div class="col-md-8"><h6>Machine Learning 1 Score: </h6></div>
+            {% if all_y[0] == "Class 1: Bad" %}
+            <div class="col-md-4 pull-right"><b class="text-danger">{{all_y[0]}}</b></div>
+            {% elif all_y[0] == "Class 2: Medium" %}
+            <div class="col-md-4 pull-right"><b class="text-warning">{{all_y[0]}}</b></div>
+            {% else %}
+            <div class="col-md-4 pull-right"><b class="text-success">{{all_y[0]}}</b></div>
+            {% endif %}
+          </li>
+
+          <li class="list-group-item">
+            <div class="row"><div class="col-md-8"><h6><i>Non-Machine Learning Score:</i></h6></div> 
+            {% if all_y[1] == "Class 1: Bad" %}
+            <div class="col-md-4 pull-right"><i class="text-danger">{{all_y[1]}}</i></div>
+            {% elif all_y[1] == "Class 2: Medium" %}
+            <div class="col-md-4 pull-right"><i class="text-warning">{{all_y[1]}}</i></div>
+            {% else %}
+            <div class="col-md-4 pull-right"><i class="text-success">{{all_y[1]}}</i></div>
+            {% endif %}
+          </li>
+
+          <li class="list-group-item">
+            <div class="row"><div class="col-md-8"><h6><p class="text-muted">Equal Weight Mean Score: </p></h6></div> 
+            <div class="col-md-4 pull-right"><p class="text-muted">{{all_y[2]}}</p></div>
+          </li>
+
+        </ul>
+        <div class="container" align="center">
+          <a href="/return-files/" target="blank"><button class='btn btn-default'>Download Result</button></a>
+         </div>
+      </div>
+
+
+    <div class="col-md-12">
+      <div class="content-section" id = "maindiv">
+        <h3 style="text-align:center">Features</h3>
+        <div class="row align-items-start, display: inline-block;" id="txtfeature">
+          <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Word Count: </label></div> <div class="col-md-3 pull-right">{{output[0]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Sentence Count: </label></div> <div class="col-md-3 pull-right">{{output[1]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Average Word Length: </label></div> <div class="col-md-3 pull-right">{{output[2]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Long Word Count: </label></div> <div class="col-md-3 pull-right">{{output[3]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Average Sentence Length: </label></div> <div class="col-md-3 pull-right">{{output[4]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Long Sentence Count: </label></div> <div class="col-md-3 pull-right">{{output[5]}}</div></li>
+                <li class="list-group-item">
+                  <div class="row"><div class="col-md-9"><label>Unique Word Count: </label></div> <div class="col-md-3 pull-right">{{output[6]}}</div>
+                </li>
+              </ul>
+            </div>
+          <div class="col-md-6">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Noun Count: </label></div> <div class="col-md-3 pull-right">{{output[7]}}</div></li>
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Proper Noun Count: </label></div> <div class="col-md-3 pull-right">{{output[8]}}</div></li>
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Adjective Count: </label></div> <div class="col-md-3 pull-right">{{output[9]}}</div></li>
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Verb Count: </label></div> <div class="col-md-3 pull-right">{{output[10]}}</div></li>
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Adverb Count: </label></div> <div class="col-md-3 pull-right">{{output[11]}}</div></li>
+              <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Tense Ratio: </label></div> <div class="col-md-3 pull-right">{{output[12]}}</div></li>
+                <li class="list-group-item">
+                <div class="row"><div class="col-md-9"><label>Error Count: </label></div> <div class="col-md-3 pull-right">{{output[13]}}</div></li>
+            </ul>      
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% elif filetype == 2 %}
+
+        <h3 style="text-align:center">Summary Result (Count for each class)</h3>
+        <div class="row align-items-start, display: inline-block;" id="csvresult">
+          <div class="content-section col-md-3"><h6><b>Machine Learning 2</b></h6>
+          <p>Class 3 (Good): <b class="text-success">{{all_class_count[3][2]}}</b><br>
+              Class 2 (Medium): <b class="text-warning">{{all_class_count[3][1]}}</b><br>
+              Class 1 (Bad): <b class="text-danger">{{all_class_count[3][0]}}</b></p>
+          </div> 
+
+          <div class='content-section col-md-3'><h6>Machine Learning 1</h6>
+            <p>Class 3 (Good): <b class="text-success">{{all_class_count[0][2]}}</b><br>
+              Class 2 (Medium): <b class="text-warning">{{all_class_count[0][1]}}</b><br>
+              Class 1 (Bad): <b class="text-danger">{{all_class_count[0][0]}}</b></p>
+          </div>
+
+          <div class='content-section col-md-3'><h6><i>Non-Machine Learning</i></h6>
+            <i>Class 3 (Good): <i class="text-success">{{all_class_count[1][2]}}</i><br>
+              Class 2 (Medium): <i class="text-warning">{{all_class_count[1][1]}}</i><br>
+              Class 1 (Bad): <i class="text-danger">{{all_class_count[1][0]}}</i></i>
+          </div>
+
+          <div class="content-section col-md-3"><h6><p class="text-muted">Equal Weight Mean Score: </p></h6>
+          <p class="text-muted">
+            Class 3 (Good): {{all_class_count[2][2]}}<br>
+            Class 2 (Medium): {{all_class_count[2][1]}}<br>
+            Class 1 (Bad): {{all_class_count[2][0]}}
+          </p>
+          </div>
+                 
+        </div>
+        <div class="container" align="center">
+          <a href="/return-files/" target="blank"><button class='btn btn-default'>Download Result</button></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12">
+      <div class="content-section" id = "maindiv">
+        <h3 style="text-align:center">Features</h3>
+        <div class="row align-items-start" id="featurecell">
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Word Count</b> </label>
+            <p>Min: {{minf[0]}}<br>Max: {{maxf[0]}}<br>Average: {{averagef[0]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Sentence Count</b> </label>
+            <p>Min: {{minf[1]}}<br>Max: {{maxf[1]}}<br>Average: {{averagef[1]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Average Word Length</b> </label>
+            <p>Min: {{minf[2]}}<br>Max: {{maxf[2]}}<br>Average: {{averagef[2]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Long Word Count</b> </label>
+            <p>Min: {{minf[3]}}<br>Max: {{maxf[3]}}<br>Average: {{averagef[3]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Average Sentence Length</b> </label>
+            <p>Min: {{minf[4]}}<br>Max: {{maxf[4]}}<br>Average: {{averagef[4]}}</p>
+          </div>      
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Long Sentence Count</b> </label>
+            <p>Min: {{minf[5]}}<br>Max: {{maxf[5]}}<br>Average: {{averagef[5]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Unique Word Count</b> </label>
+            <p>Min: {{minf[6]}}<br>Max: {{maxf[6]}}<br>Average: {{averagef[6]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Noun Count</b> </label>
+            <p>Min: {{minf[7]}}<br>Max: {{maxf[7]}}<br>Average: {{averagef[7]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Proper Noun Count</b> </label>
+            <p>Min: {{minf[8]}}<br>Max: {{maxf[8]}}<br>Average: {{averagef[8]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Adjective Count</b> </label>
+            <p>Min: {{minf[9]}}<br>Max: {{maxf[9]}}<br>Average: {{averagef[9]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Verb Count</b> </label>
+            <p>Min: {{minf[10]}}<br>Max: {{maxf[10]}}<br>Average: {{averagef[10]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Adverb Count</b> </label>
+            <p>Min: {{minf[11]}}<br>Max: {{maxf[11]}}<br>Average: {{averagef[11]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Tense Ratio</b> </label>
+            <p>Min: {{minf[12]}}<br>Max: {{maxf[12]}}<br>Average: {{averagef[12]}}</p>
+          </div>
+          <div class="content-section col-md-2, display: inline-block;" id="csvfeature"><label><b>Error Count</b> </label>
+            <p>Min: {{minf[13]}}<br>Max: {{maxf[13]}}<br>Average: {{averagef[13]}}</p>
+          </div>
+        </div>
+      </div>     
+    </div>
+  {% endif %}
+{% endblock content %}
+

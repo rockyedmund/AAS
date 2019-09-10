@@ -1,0 +1,17 @@
+          <!-- {% from "_formhelpers.html" import render_field %}
+          <dl>
+            <b>Word Count</b><br>{{ render_field(form.in_ft1min) }}{{ render_field(form.in_ft1max) }}
+          </dl> -->
+{% macro render_field(field) %}
+  {{ field.label }}
+  {{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <b class="alert alert-danger">
+    <!-- {% for error in field.errors %} -->
+    Please insert a valid value</b>
+    <!-- {% endfor %} -->
+    <!-- </ul> -->
+  {% endif %}
+  </dd>
+{% endmacro %}
+

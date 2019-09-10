@@ -1,0 +1,184 @@
+body {
+  /*background: #b5cddd;*/
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #1f313d;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+#maindiv {
+	border: 0;
+	border-radius: 10px;
+}
+
+
+#upload {
+	border: 0;
+	margin-left: 200px;
+  	margin-right: 200px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+  	/*background: #b5cddd;*/
+}
+
+#inrow {
+	display: flex;
+	align-items: center; 
+	/*margin-top: 5px;*/
+	margin-left: 0px;
+}
+
+#submit {
+	margin-top: 20px;
+	margin-left: 350px;
+	margin-right: 350px;
+}
+
+#inheader {
+	text-align: center;
+	padding: 2px;
+}
+
+#inlabel {
+	margin-top: 1px;
+}
+
+#inputfeature {
+	/*margin-top: 1px;*/
+	margin-left: 150px;
+  	margin-right: 150px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+}
+
+#defaultvalue {
+	padding-top: 14px;
+	margin-left: 50px;
+  	/*margin-right: 10px;*/
+}
+
+#fieldlabel {
+	align-content: left;
+}
+
+#weight2 {
+	margin-left: 64px;
+}
+
+.alert {
+	border:0; 
+	background: none;
+}
+
+#featurecell {
+	margin: 10px 32px 10px 32px;
+}
+
+
+#txtresult {
+	margin-left: 300px;
+  	margin-right: 300px;
+  	margin-bottom: 10px;
+}
+
+.text-success .danger-danger .warning-warning {
+	padding: 0px;
+}
+
+.text-muted {
+	margin: 0px;
+}
+
+
+#txtfeature {
+	margin-left: 5px;
+  	margin-right: 5px;
+  	margin-bottom: 10px;
+}
+
+#csvresult {
+	margin-left: 8px;
+  	margin-right: 8px;
+}
+
+#csvfeature {
+	height: 130px;
+  	width: 240px;
+  	margin-left: 5px;
+  	margin-right: 5px;
+  	margin-bottom: 10px;
+
+}
